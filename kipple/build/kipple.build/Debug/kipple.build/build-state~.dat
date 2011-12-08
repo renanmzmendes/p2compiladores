@@ -1,0 +1,64 @@
+Tkipple
+v7
+r0
+t344996585.266278
+cCheck dependencies
+cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple" normal x86_64
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004CAA740B00000000000000EE
+t1286239243
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004BBD2CE90000000000004174
+t1270689001
+s16756
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple
+t1323303785
+s9056
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/kipple.LinkFileList
+c000000004EE003690000000000000097
+t1323303785
+s151
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o
+t1323303785
+s2756
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c
+c000000004EE003620000000000000089
+t1323303778
+s137
+i<stdio.h>
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies344996585#344996585#0(0"0(0#1#0"3343187568374212096#0"0#
+
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s344996585.153129
+e344996585.212564
+r1
+xCompileC
+xbuild/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o
+x/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@98"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c344996585#344996585#0(0"0(0#0#90"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c8315178109760531456#1769"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o"0#
+
+CLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple" normal x86_64
+s344996585.212678
+e344996585.266223
+r1
+xLd
+x/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple
+xnormal
+xx86_64
+lSLF07#2@107"Link /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple344996585#344996585#0(0"0(0#0#0"8605137184#729"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" -filelist "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/kipple.LinkFileList" -mmacosx-version-min=10.6 -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple"0#
+
