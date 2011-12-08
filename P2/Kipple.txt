@@ -1,0 +1,15 @@
+STACK_ID = "a"|"b"|"c"|"d"|"e"|"f"|"g"|"h"|"i"|"j"|"k"|"l"|"m"|"n"|"o"|"p"|"q"|"r"|"s"|"t"|"u"|"v"|"w"|"x"|"y"|"z"
+		  |"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z"|"@".
+NUM = "1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9" {"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"}.
+
+OPERATION = OP1 | OP2.
+OP1 = NUM [REST_PR].
+OP2 = STACK_ID ( [REST_PR | REST_PL | REST_ADD | REST_SUB | REST_CLR] ).
+REST_PR = ">" OP2.
+REST_PL = "<" (OP1 | OP2).
+REST_ADD = "+" (OP1 | OP2).
+REST_SUB = "-" (OP1 | OP2).
+REST_CLR = "?".
+
+LOOP = "(" OP2 CODE ")".
+CODE = {LOOP | OPERATION}.
