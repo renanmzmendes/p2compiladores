@@ -18,6 +18,7 @@ typedef enum tiposToken {
 	MINUS,
 	L_PAR,
 	R_PAR,
+    QUESTION_MARK,
 	PONTUACAO,
 	
 	NUM,
