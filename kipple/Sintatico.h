@@ -15,7 +15,7 @@
 #include "TabelasSintatico.h"
 #include "stack.h"
 
-stackT pilha;
+stackT pilhaEstado;
 
 void empilha(Estado estadoRetorno);
 int desempilha();
@@ -24,5 +24,7 @@ int procuraTransicao(Estado estadoCorrente, Token* token, transicao* trans);
 int procuraChamadaSubmaquina(Estado estadoCorrente, Token* token, chamadaSubmaquina* chamada);
 
 int estadoFinal(Estado estado);
+
+void semantico_tbd();
 
 #endif

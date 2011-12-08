@@ -11,20 +11,21 @@
 #include "string.h"
 #include "stdlib.h"
 #include "stdio.h"
+#include "stack.h"
 
 void empilha(Estado estadoRetorno) {
-    StackPush(&pilha, estadoRetorno);
+    StackPush(&pilhaEstado, estadoRetorno);
 }
 
 int desempilha() {
-    return StackPop(&pilha);
+    return StackPop(&pilhaEstado);
 }
 
 int procuraTransicao(Estado estadoCorrente, Token* token, transicao* trans) {
     int i;
     for(i = 0; i < NUMTRANSICOES; ++i) {
-        if(transicoes[i].estadoOrigem == estadoCorrente) {
-            if(transicoes[i].tipo == token->tipo && (!strcmp(transicoes[i].token, token->valor) || !strcmp("", transicoes[i].token)) || transicoes[i].tipo == NDEF) {
+        if(transicoes[i].estadoOrigem == estadoCorrente || transicoes[i].estadoOrigem == QUALQUER_ESTADO) {
+            if(transicoes[i].tipo == token->tipo || transicoes[i].tipo == NDEF) {
                 *trans = transicoes[i];
                 return 1;
             }
@@ -38,7 +39,7 @@ int procuraChamadaSubmaquina(Estado estadoCorrente, Token* token, chamadaSubmaqu
     int i;
     for(i = 0; i < NUMCHAMADAS; ++i) {
         if(chamadas[i].estadoOrigem == estadoCorrente) {
-            if(chamadas[i].tipo == token->tipo && (!strcmp(chamadas[i].token, token->valor) || !strcmp("", chamadas[i].token)) || chamadas[i].tipo == NDEF) {
+            if(chamadas[i].tipo == token->tipo || chamadas[i].tipo == NDEF) {
                 *chamada = chamadas[i];
                 return 1;
             }
@@ -65,4 +66,8 @@ int estadoFinal(Estado estado) {
     }
     
     return 0;
+}
+
+void semantico_tbd() {
+    printf("SMP\n");
 }

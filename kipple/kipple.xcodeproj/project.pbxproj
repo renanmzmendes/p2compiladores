@@ -10,6 +10,7 @@
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* kipple.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* kipple.1 */; };
 		C1C4BEDB14903DDF004B08F6 /* Sintatico.c in Sources */ = {isa = PBXBuildFile; fileRef = C1C4BED814903DDF004B08F6 /* Sintatico.c */; };
+		C1C4BEE714905528004B08F6 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = C1C4BEE514905528004B08F6 /* stack.c */; };
 		F1DD3F7314903B32005104C0 /* Lexico.c in Sources */ = {isa = PBXBuildFile; fileRef = F1DD3F6F14903B32005104C0 /* Lexico.c */; };
 		F1DD3F7414903B32005104C0 /* Token.c in Sources */ = {isa = PBXBuildFile; fileRef = F1DD3F7114903B32005104C0 /* Token.c */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,8 @@
 		C1C4BED814903DDF004B08F6 /* Sintatico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sintatico.c; sourceTree = "<group>"; };
 		C1C4BED914903DDF004B08F6 /* Sintatico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sintatico.h; sourceTree = "<group>"; };
 		C1C4BEDA14903DDF004B08F6 /* TabelasSintatico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabelasSintatico.h; sourceTree = "<group>"; };
+		C1C4BEE514905528004B08F6 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		C1C4BEE614905528004B08F6 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 		C6A0FF2C0290799A04C91782 /* kipple.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = kipple.1; sourceTree = "<group>"; };
 		F1DD3F6F14903B32005104C0 /* Lexico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Lexico.c; sourceTree = "<group>"; };
 		F1DD3F7014903B32005104C0 /* Lexico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lexico.h; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				C1C4BED714903DDF004B08F6 /* ConstantesSintatico.h */,
+				C1C4BEE514905528004B08F6 /* stack.c */,
+				C1C4BEE614905528004B08F6 /* stack.h */,
 				C1C4BED814903DDF004B08F6 /* Sintatico.c */,
 				C1C4BED914903DDF004B08F6 /* Sintatico.h */,
 				C1C4BEDA14903DDF004B08F6 /* TabelasSintatico.h */,
@@ -148,6 +153,7 @@
 				F1DD3F7314903B32005104C0 /* Lexico.c in Sources */,
 				F1DD3F7414903B32005104C0 /* Token.c in Sources */,
 				C1C4BEDB14903DDF004B08F6 /* Sintatico.c in Sources */,
+				C1C4BEE714905528004B08F6 /* stack.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

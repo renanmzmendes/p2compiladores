@@ -26,9 +26,13 @@ static transicao transicoes[] = {
     
     // OP_DOIS
     {OP_DOIS_INICIAL, ID, OP_DOIS_1_AC},
+    {OP_DOIS_1_AC, ID, OP_DOIS_1_AC},
+    {OP_DOIS_1_AC, NUM, OP_DOIS_1_AC},
     
     // OP_UM
     {OP_UM_INICIAL, NUM, OP_UM_1_AC},
+    {OP_UM_1_AC, NUM, OP_UM_1_AC},
+    {OP_UM_1_AC, ID, OP_UM_1_AC},
     
     // REST_ADD
     {REST_ADD_INICIAL, PLUS, REST_ADD_1},
@@ -43,7 +47,10 @@ static transicao transicoes[] = {
     {REST_PR_INICIAL, TO_RIGHT, REST_PR_1},
     
     // REST_SUB
-    {REST_SUB_INICIAL, MINUS, REST_SUB_1}
+    {REST_SUB_INICIAL, MINUS, REST_SUB_1},
+    
+    // Se receber pontuação volta pra CODE_INICAL
+    {QUALQUER_ESTADO, PONTUACAO, CODE_INICIAL}
 };
 
 #define NUMTRANSICOES (sizeof(transicoes)/sizeof(*transicoes))

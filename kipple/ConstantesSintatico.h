@@ -54,7 +54,9 @@ typedef enum {
     REST_SUB_2_AC,
     
     STACK_ID_INICIAL,
-    STACK_ID_1_AC
+    STACK_ID_1_AC,
+    
+    QUALQUER_ESTADO
     
     
 } Estado;

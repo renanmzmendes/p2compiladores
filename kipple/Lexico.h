@@ -13,11 +13,7 @@
 #include "stdio.h"
 #include "Token.h"
 
-void InicializaLexico();
-void criarTabelaDeEstados();
-
 Token *getNextToken(FILE *);
-void ImprimirTabelaLexico();
 
 #endif
 

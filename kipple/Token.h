@@ -9,6 +9,7 @@
 
 #ifndef TOKEN_H
 #define TOKEN_H
+
 // quase todos não são usados, mas vou deixar para o caso de agente resolver usar um dia,
 // os não usados tao abaixo de EoF.
 typedef enum tiposToken {
@@ -38,18 +39,6 @@ typedef struct token {
 } Token;
 
 
-
 Token *criarToken(char *Lexema,tipoToken tipo, int linha, int coluna);
-
-//auxiliares na criação do token
-//tipoToken definirTipo(char *Lexema,int terminal);
-//int ehPalavraReservada(char *Lexema);
-
-//pra visualizar 
-//void imprimirToken(Token *aux);
-//void ImprimeTipo(tipoToken Tipo);
-
-//nem ta usando ainda
-//void criarTabela_De_Caracteres_Especiais();
 
 #endif
