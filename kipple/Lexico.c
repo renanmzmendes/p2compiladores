@@ -33,127 +33,125 @@ static int TabelaLexica[NumEstados][256];
 
 void InicializaLexico(){
 	linha = 0;
-	coluna = 0;
-	criarTabela_De_Caracteres_Especiais();
-	criarTabelaDeEstados();
+	coluna = 0; 
 }
-
-void criarTabelaDeEstados(){
-	int estado;
-	int valorASCII;
-	estado=0;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if(valorASCII >= 'a' && valorASCII<= 'z' || valorASCII >= 'A' && valorASCII<= 'Z'){
-			TabelaLexica[estado][valorASCII] = 1;	
-		}
-		else if (valorASCII == '0'){
-			TabelaLexica[estado][valorASCII] = 3;	
-		}
-		else if (valorASCII== '.'){
-			TabelaLexica[estado][valorASCII] = 4;	
-		}
-		else if (valorASCII >= '1' && valorASCII <= '9'){
-			TabelaLexica[estado][valorASCII] = 2;
-		}
-		else if (valorASCII== '"'){
-			TabelaLexica[estado][valorASCII] = 6;
-		}
-		else if (valorASCII== '\n' || valorASCII== '.' || valorASCII== ','){
-			TabelaLexica[estado][valorASCII] = Terminal_PONTUACAO;
-		}
-		else if (valorASCII== '=' || valorASCII== '>' || valorASCII== '<' || valorASCII== '!'){
-			TabelaLexica[estado][valorASCII] = 7;
-		}
-		else if (valorASCII== '+' || valorASCII== '-' || valorASCII== '*' || valorASCII== '/' || 
-				 valorASCII== '%' || valorASCII== '(' || valorASCII== ')' || valorASCII== '&' ||
-				 valorASCII== '|' || valorASCII== '[' || valorASCII== ']' || valorASCII== '@' ||
-				 valorASCII== '$' ){
-			TabelaLexica[estado][valorASCII] = Terminal_CARACTER_ESPECIAL;
-		}
-		else if (valorASCII== '\377'){
-			TabelaLexica[estado][valorASCII] = Fim_de_Arquivo;
-		}
-        
-		else{ 
-			TabelaLexica[estado][valorASCII] = Erro_Lexico ;
-		}
-	}
-    
-	estado=1;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII >= 'a' && valorASCII<= 'z' || 
-			valorASCII >= 'A' && valorASCII<= 'Z' || 
-			valorASCII >= '0' && valorASCII <= '9'){
-			TabelaLexica[estado][valorASCII] = 1;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Terminal_IDENT ;
-		}		
-	}
-    
-	estado=2;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII >= '0' && valorASCII <= '9'){
-			TabelaLexica[estado][valorASCII] = 2;
-		}
-		else if(valorASCII == '.') {
-			TabelaLexica[estado][valorASCII] = 4;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
-		}		
-	}
-    
-	estado=3;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII == '.' ){
-			TabelaLexica[estado][valorASCII] = 4;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
-		}		
-	}
-    
-	estado=4;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII >= '0' && valorASCII <= '9'){
-			TabelaLexica[estado][valorASCII] = 5;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Erro_Lexico;
-		}		
-	}
-    
-	estado=5;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII >= '0' && valorASCII <= '9'){
-			TabelaLexica[estado][valorASCII] = 5;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
-		}		
-	}
-    
-	estado=6;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII != '"' ){
-			TabelaLexica[estado][valorASCII] = 6;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Terminal_STRING ;
-		}		
-	}
-    
-	estado=7;
-	for (valorASCII=0; valorASCII<=255; valorASCII++) {
-		if (valorASCII == '=' ){
-			TabelaLexica[estado][valorASCII] = Terminal_CARACTER_ESPECIAL_2_Digitos;
-		}
-		else {
-			TabelaLexica[estado][valorASCII] = Terminal_CARACTER_ESPECIAL_1_Digitos ;
-		}		
-	}	
-}
+//
+//void criarTabelaDeEstados(){
+//	int estado;
+//	int valorASCII;
+//	estado=0;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if(valorASCII >= 'a' && valorASCII<= 'z' || valorASCII >= 'A' && valorASCII<= 'Z'){
+//			TabelaLexica[estado][valorASCII] = 1;	
+//		}
+//		else if (valorASCII == '0'){
+//			TabelaLexica[estado][valorASCII] = 3;	
+//		}
+//		else if (valorASCII== '.'){
+//			TabelaLexica[estado][valorASCII] = 4;	
+//		}
+//		else if (valorASCII >= '1' && valorASCII <= '9'){
+//			TabelaLexica[estado][valorASCII] = 2;
+//		}
+//		else if (valorASCII== '"'){
+//			TabelaLexica[estado][valorASCII] = 6;
+//		}
+//		else if (valorASCII== '\n' || valorASCII== '.' || valorASCII== ','){
+//			TabelaLexica[estado][valorASCII] = Terminal_PONTUACAO;
+//		}
+//		else if (valorASCII== '=' || valorASCII== '>' || valorASCII== '<' || valorASCII== '!'){
+//			TabelaLexica[estado][valorASCII] = 7;
+//		}
+//		else if (valorASCII== '+' || valorASCII== '-' || valorASCII== '*' || valorASCII== '/' || 
+//				 valorASCII== '%' || valorASCII== '(' || valorASCII== ')' || valorASCII== '&' ||
+//				 valorASCII== '|' || valorASCII== '[' || valorASCII== ']' || valorASCII== '@' ||
+//				 valorASCII== '$' ){
+//			TabelaLexica[estado][valorASCII] = Terminal_CARACTER_ESPECIAL;
+//		}
+//		else if (valorASCII== '\377'){
+//			TabelaLexica[estado][valorASCII] = Fim_de_Arquivo;
+//		}
+//        
+//		else{ 
+//			TabelaLexica[estado][valorASCII] = Erro_Lexico ;
+//		}
+//	}
+//    
+//	estado=1;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII >= 'a' && valorASCII<= 'z' || 
+//			valorASCII >= 'A' && valorASCII<= 'Z' || 
+//			valorASCII >= '0' && valorASCII <= '9'){
+//			TabelaLexica[estado][valorASCII] = 1;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Terminal_IDENT ;
+//		}		
+//	}
+//    
+//	estado=2;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII >= '0' && valorASCII <= '9'){
+//			TabelaLexica[estado][valorASCII] = 2;
+//		}
+//		else if(valorASCII == '.') {
+//			TabelaLexica[estado][valorASCII] = 4;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
+//		}		
+//	}
+//    
+//	estado=3;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII == '.' ){
+//			TabelaLexica[estado][valorASCII] = 4;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
+//		}		
+//	}
+//    
+//	estado=4;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII >= '0' && valorASCII <= '9'){
+//			TabelaLexica[estado][valorASCII] = 5;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Erro_Lexico;
+//		}		
+//	}
+//    
+//	estado=5;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII >= '0' && valorASCII <= '9'){
+//			TabelaLexica[estado][valorASCII] = 5;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
+//		}		
+//	}
+//    
+//	estado=6;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII != '"' ){
+//			TabelaLexica[estado][valorASCII] = 6;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Terminal_STRING ;
+//		}		
+//	}
+//    
+//	estado=7;
+//	for (valorASCII=0; valorASCII<=255; valorASCII++) {
+//		if (valorASCII == '=' ){
+//			TabelaLexica[estado][valorASCII] = Terminal_CARACTER_ESPECIAL_2_Digitos;
+//		}
+//		else {
+//			TabelaLexica[estado][valorASCII] = Terminal_CARACTER_ESPECIAL_1_Digitos ;
+//		}		
+//	}	
+//}
 
 
 Token *getNextToken(FILE *inputFile){
@@ -164,11 +162,6 @@ Token *getNextToken(FILE *inputFile){
 	int estado_Atual = 0;
 	char BufferLexema[256] = {};
     
-	// descartando os espaços e tabs
-	while (ch == ' ' || ch == '\t') {
-		ch = getc(inputFile);
-		coluna++;
-	}
 	// descartando comentários
 	if (ch == '#') {
 		while (ch != '\n') {
@@ -184,9 +177,24 @@ Token *getNextToken(FILE *inputFile){
 	BufferLexema[strlen(BufferLexema)] = ch;
     if (ch == '\377') {
         estado_Atual = Fim_de_Arquivo;
-    } else if (estado_Atual == 0) {
+    }else if (ch == '>') {
 		estado_Atual = TabelaLexica[estado_Atual][ch];
-
+	}else if (ch == '<') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == '+') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == '-') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == ')') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == '(') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == ' ' || ch == '\t') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == '\t' ) {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+	}else if (ch == '') {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
 	}
 
 	while (estado_Atual >= 0) {
