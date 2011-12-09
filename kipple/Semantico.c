@@ -25,6 +25,8 @@ int var;
 int num;
 int variaveis[26];
 
+tipoToken tipoLOperand;
+
 void inicializaSemantico() {
     out = fopen("/Users/renanmzmendes/p2compiladores/out.txt", "wr");
 
@@ -168,13 +170,13 @@ void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
 //    strcpy(t->valor, labelTemp);
 }
 
-void geraPushLeft(int idxVar1, int idxVar2) {
+void geraPushVar(int idxVar1, int idxVar2) {
     // Imprime código que faz var1 < var2
 //    char* comando = getEmptyString(MAX_COMANDO);
 //    sprintf(comando,,)
 }
 
-void geraPushLeftNum(int idxVar, int num) {
+void geraPushNum(int idxVar, int num) {
     
 //    aload <idxVar>
 //    new java/lang/Integer
@@ -192,26 +194,6 @@ void geraPushLeftNum(int idxVar, int num) {
     invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
     pop();
 }
-
-void geraPushRightNum(int num, int idxVar) {
-    
-    //    aload <idxVar>
-    //    new java/lang/Integer
-    //    dup
-    //    bipush 100
-    //    invokespecial java/lang/Integer/<init>(I)V
-    //    invokevirtual java/util/Stack/push(Ljava/lang/Object;)Ljava/lang/Object;
-    //    pop
-    
-    aload(idxVar);
-    new("java/lang/Integer");
-    dup();
-    bipush(num);
-    invokespecial("java/lang/Integer/<init>(I)", "V");
-    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
-    pop();
-}
-
 
 
 void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubmaquina, Token* t) {
@@ -233,7 +215,29 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubma
     } else if(a == ARMAZENA_NUM_PUSH_LEFT) {
         num = atoi(t->valor);
         
-        geraPushLeftNum(var, num);
+        geraPushNum(var, num);
+    } else if(a == ARMAZENA_VAR_PUSH_LEFT) {
+//        int loperand = var;
+//        var = incluiVariavel(t->valor[0]);
+//        
+//        geraPushLeft(loperand, var);
+    } else if(a == DEFINE_LOPERAND_NUM) {
+        tipoLOperand = NUM;
+        
+    } else if(a == DEFINE_LOPERAND_VAR) {
+        tipoLOperand = ID;
+        
+    } else if(a == ARMAZENA_VAR_PUSH_RIGHT) {
+        if(tipoLOperand == NUM) {
+            var = incluiVariavel(t->valor[0]);
+            geraPushNum(var, num);
+            
+        } else {
+            int loperand = var;
+            var = incluiVariavel(t->valor[0]);
+            geraPushNum(loperand, var);
+            
+        }
     }
     
 

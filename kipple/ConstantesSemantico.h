@@ -15,9 +15,11 @@ typedef enum {
     ARMAZENA_NUMERO,
     ARMAZENA_NUM_PUSH_LEFT,
     ARMAZENA_VAR_PUSH_LEFT,
-    PUSH_LEFT_NUM,
-    PUSH_LEFT,
-    PUSH_RIGHT
+    
+    DEFINE_LOPERAND_NUM,
+    DEFINE_LOPERAND_VAR,
+    ARMAZENA_VAR_PUSH_RIGHT,
+    
 } AcaoSemantica;
 
 #endif
