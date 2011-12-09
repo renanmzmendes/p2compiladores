@@ -170,12 +170,27 @@ void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
 //    strcpy(t->valor, labelTemp);
 }
 
-void geraPushVar(int idxVar1, int idxVar2) {
-    // Imprime código que faz var1 < var2
-//    char* comando = getEmptyString(MAX_COMANDO);
-//    sprintf(comando,,)
+// Sempre faz recebe<fornece
+void geraPushVar(int recebe, int fornece) {
+    // Em Java tem que ser:
+    // stack1.push(stack2.pop());
+    //
+    // O que se traduz para:
+    // aload 1
+    // aload 2
+    // invokevirtual java/util/Stack/pop()Ljava/lang/Object;
+    // invokevirtual java/util/Stack/push(Ljava/lang/Object;)Ljava/lang/Object
+    // pop
+    
+    aload(recebe);
+    aload(fornece);
+    invokevirtual("java/util/Stack/pop()", "Ljava/lang/Object;");
+    invokevirtual("java/util/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+    
 }
 
+// Sempre faz idxVar<num
 void geraPushNum(int idxVar, int num) {
     
 //    aload <idxVar>
@@ -210,24 +225,30 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubma
         var = incluiVariavel(t->valor[0]);
 
     } else if(a == ARMAZENA_NUMERO) {
+        
         num = atoi(t->valor);
         
     } else if(a == ARMAZENA_NUM_PUSH_LEFT) {
-        num = atoi(t->valor);
         
+        num = atoi(t->valor);
         geraPushNum(var, num);
+        
     } else if(a == ARMAZENA_VAR_PUSH_LEFT) {
-//        int loperand = var;
-//        var = incluiVariavel(t->valor[0]);
-//        
-//        geraPushLeft(loperand, var);
+        
+        int loperand = var;
+        var = incluiVariavel(t->valor[0]);
+        geraPushVar(loperand, var);
+        
     } else if(a == DEFINE_LOPERAND_NUM) {
+        
         tipoLOperand = NUM;
         
     } else if(a == DEFINE_LOPERAND_VAR) {
+        
         tipoLOperand = ID;
         
     } else if(a == ARMAZENA_VAR_PUSH_RIGHT) {
+        
         if(tipoLOperand == NUM) {
             var = incluiVariavel(t->valor[0]);
             geraPushNum(var, num);
@@ -235,10 +256,10 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubma
         } else {
             int loperand = var;
             var = incluiVariavel(t->valor[0]);
-            geraPushNum(loperand, var);
+            geraPushVar(var, loperand);
             
         }
-    }
+    } 
     
 
 }
