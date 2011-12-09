@@ -6,6 +6,7 @@
 #define MAX_SIZE 50
 
 #include "Sintatico.h"
+#include "Semantico.h"
 #include "TabelasSintatico.h"
 
 int main() {
@@ -16,7 +17,7 @@ int main() {
         
     
 	FILE *entrada;
-    entrada = fopen("/Users/renanmzmendes/newcompilador/Projeto/in.txt", "r");
+    entrada = fopen("/Users/renanmzmendes/p2compiladores/in.txt", "r");
     //verificando se arquivo existe
     if(entrada == NULL) {
         printf("arquivo nao encontrado\n\n");
@@ -25,8 +26,12 @@ int main() {
     
     StackInit(&pilhaEstado, MAX_SIZE);
 
-	//ImprimirTabelaLexico(); //se quiser ver a tabela de estados
-	
+    // Escreve o cabeçalho antes mesmo de entrar
+    // em algum estado, já que não existe um "main"
+    // em Kipple.
+    
+    imprimeCabecalho();
+    
     Estado estadoCorrente = CODE_INICIAL;
     Estado estadoAnterior = 0;
 	token = getNextToken(entrada);
@@ -74,7 +79,7 @@ int main() {
     // Dump das variáveis e constantes no fim do programa
 	//declararVariaveisConstantes();	
 	//escreveFuncoesMvn();
-	//imprimeFim();
+	imprimeFim();
 	
     free(token);
 	return 0;
