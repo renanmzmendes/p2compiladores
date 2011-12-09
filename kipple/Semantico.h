@@ -26,10 +26,6 @@ typedef struct {
 Tokens tokens;
 
 static int contaWhiles = 0;
-static int contaIfs = 0;
-static int contaExp = 0;
-static int contaTemp = 0;
-static int contaComp = 0;
 FILE* out;
 
 stackT pilhaIfs;
@@ -41,9 +37,10 @@ stackT pilhaWhiles;
 stackT pilhaExpressoes;
 
 
-void executarAcaoSemantica(Estado anterior, Estado atual, Token* t);
-AcaoSemantica decidirAcaoSemantica(Estado e, Estado atual);
+void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubmaquina, Token* t);
+AcaoSemantica decidirAcaoSemantica(Estado e, Estado atual, Submaquina ultimaSubmaquina);
 
+void inicializaSemantico();
 void imprimeCabecalho();
 void declararVariaveisConstantes();
 void escreveFuncoesMvn();
@@ -56,11 +53,14 @@ void imprimeFim();
 typedef struct {
     Estado atual;
     Estado anterior;
+    Submaquina submaquinaAnterior;
     AcaoSemantica a;
 } EstadoAcao;
 
 static EstadoAcao relacoes[] = {
-    
+    {OP_DOIS_1_AC, OP_DOIS_INICIAL, OPERATION, ARMAZENA_VARIAVEL},
+    {OP_UM_1_AC, OP_UM_INICIAL, OPERATION, ARMAZENA_NUMERO},
+    {OP_UM_1_AC, OP_UM_INICIAL, REST_PL, ARMAZENA_NUM_PUSH_LEFT},
     
 };
 

@@ -12,14 +12,35 @@
 #include "stdlib.h"
 #include "string.h"
 
-#define MAX_LABEL 100
-#define MAX_COMANDO 120
+#define MAX_LABEL 200
+#define MAX_COMANDO 200
     
 Token* lvalue; // Para guardar a variável da atribuição
 Token* varUltimaExp; // Para guardar a variável temporária da expressão
                        // da última expressao calculada
 Token* tempComp; // Variável temporária da comparação
 Token* opcomp; // Guarda o token do operador de comparação
+
+int var;
+int num;
+int variaveis[26];
+
+void inicializaSemantico() {
+    out = fopen("/Users/renanmzmendes/p2compiladores/out.txt", "wr");
+
+    int i;
+    for(i = 0; i < 26; ++i) {
+        variaveis[i] = 0;
+    }
+}
+
+int getVarIndex(char v) {
+    return v - 97;
+}
+
+char getVarByIndex(int i) {
+    return i + 97;
+}
 
 char* getEmptyString(int length) {
     char* s = (char*)malloc(length*sizeof(char));
@@ -35,56 +56,99 @@ char* getEmptyString(int length) {
 
 void escreve(char* comando) {
     printf("%s\n", comando);
-//    fprintf(out, "%s\n", comando);
+    fprintf(out, "%s\n", comando);
 }
 
-void SC(char* subrotina, char* label) {
+void new(char* class) {
     char* comando = getEmptyString(MAX_COMANDO);
-    sprintf(comando, "%s SC %s", label, subrotina);
+    sprintf(comando, "\tnew %s", class);
+    escreve(comando);
+    free(comando);
+}
+
+void aload(int i) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\taload %d", i);
+    escreve(comando);
+    free(comando);
+}
+
+void astore(int i) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tastore %d", i);
     escreve(comando);
     free(comando);
 }
 
 
-void FIM() {
-    escreve(".end method");
+void bipush(int i) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tbipush %d", i);
+    escreve(comando);
+    free(comando);
+}
+
+void invokespecial(char* method, char* returnType) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tinvokespecial %s%s", method, returnType);
+    escreve(comando);
+    free(comando);
+}
+
+void invokevirtual(char* method, char* returnType) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tinvokevirtual %s%s", method, returnType);
+    escreve(comando);
+    free(comando);
+}
+
+
+void dup() {
+    escreve("\tdup");
+}
+
+void pop() {
+    escreve("\tpop");
 }
 
 ////////////////////////////
+
+void declaraPilha(int idx) {
+//    new java/util/Stack
+//	  dup
+//    invokespecial java/util/Stack/<init>()V
+//    astore <idx>
+    
+    new("java/util/Stack");
+    dup();
+    invokespecial("java/util/Stack/<init>()", "V");
+    astore(idx);
+}
+
+int incluiVariavel(char v) {
+    int varIdx = getVarIndex(v);
+    if(variaveis[varIdx] == 0) {
+        declaraPilha(varIdx);
+        variaveis[varIdx] = 1;
+    }
+    
+    return varIdx;
+}
+
 
 // Retorna o label/valor da variável temporária
 char* criaVariavelTemporaria() {
     char* label = getEmptyString(MAX_LABEL);
     strcat(label, "TEMP");
     char* idx = getEmptyString(5);
-    sprintf(idx, "%d", contaTemp);
+//    sprintf(idx, "%d", contaTemp);
     strcat(label, idx);
     //adicionarSimbolo(ID, label, label, escopoAtual);
     
-    contaTemp++;
+//    contaTemp++;
     
     return label;
 }
-
-//char* recuperaLabel(Token* t) {
-//    char* label;
-//    if(t->tipo == NUM) {
-//        int c = atoi(t->valor);
-//        label = recuperaLabelConstante(c, &constTab);
-//        if(label == 0) {
-//            printf("Constante %s nao presente na tabela de constantes", t->valor);
-//            exit(1);
-//        }
-//    } else if(t->tipo == ID) {
-//        label = recuperaLabelSimbolo(t->valor, escopoAtual);
-//        if(label == 0) {
-//            printf("Variavel '%s' nao declarada\n", t->valor);
-//            exit(1);
-//        }
-//    }
-//    
-//    return label;
-//}
 
 // Gera código da operação e 
 void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
@@ -104,22 +168,83 @@ void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
 //    strcpy(t->valor, labelTemp);
 }
 
+void geraPushLeft(int idxVar1, int idxVar2) {
+    // Imprime código que faz var1 < var2
+//    char* comando = getEmptyString(MAX_COMANDO);
+//    sprintf(comando,,)
+}
 
-void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
-    AcaoSemantica a = decidirAcaoSemantica(anterior, atual);
+void geraPushLeftNum(int idxVar, int num) {
+    
+//    aload <idxVar>
+//    new java/lang/Integer
+//    dup
+//    bipush 100
+//    invokespecial java/lang/Integer/<init>(I)V
+//    invokevirtual java/util/Stack/push(Ljava/lang/Object;)Ljava/lang/Object;
+//    pop
+    
+    aload(idxVar);
+    new("java/lang/Integer");
+    dup();
+    bipush(num);
+    invokespecial("java/lang/Integer/<init>(I)", "V");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+}
+
+void geraPushRightNum(int num, int idxVar) {
+    
+    //    aload <idxVar>
+    //    new java/lang/Integer
+    //    dup
+    //    bipush 100
+    //    invokespecial java/lang/Integer/<init>(I)V
+    //    invokevirtual java/util/Stack/push(Ljava/lang/Object;)Ljava/lang/Object;
+    //    pop
+    
+    aload(idxVar);
+    new("java/lang/Integer");
+    dup();
+    bipush(num);
+    invokespecial("java/lang/Integer/<init>(I)", "V");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+}
+
+
+
+void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubmaquina, Token* t) {
+    AcaoSemantica a = decidirAcaoSemantica(anterior, atual, ultimaSubmaquina);
     
     
     if(a == 0) {
         return;
     }
     
+    if(a == ARMAZENA_VARIAVEL) {
+        // Instancia nova pilha caso essa já não tenha
+        // sido utilizada anteriormente no programa
+        var = incluiVariavel(t->valor[0]);
+
+    } else if(a == ARMAZENA_NUMERO) {
+        num = atoi(t->valor);
+        
+    } else if(a == ARMAZENA_NUM_PUSH_LEFT) {
+        num = atoi(t->valor);
+        
+        geraPushLeftNum(var, num);
+    }
+    
 
 }
 
-AcaoSemantica decidirAcaoSemantica(Estado anterior, Estado atual) {    
+AcaoSemantica decidirAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubmaquina) {    
     int i;
     for(i = 0; i < NUMRELACOES; ++i) {
-        if((relacoes[i].anterior == anterior || relacoes[i].anterior == QUALQUER_ESTADO) && (relacoes[i].atual == atual || relacoes[i].atual == QUALQUER_ESTADO)) {
+        if((relacoes[i].anterior == anterior || relacoes[i].anterior == QUALQUER_ESTADO) 
+           && (relacoes[i].atual == atual || relacoes[i].atual == QUALQUER_ESTADO)
+           && (relacoes[i].submaquinaAnterior == ultimaSubmaquina)) {
             return relacoes[i].a;
         }
     }
@@ -152,8 +277,10 @@ void imprimeCabecalho() {
     escreve("");
     escreve("");
     escreve(".method public static main([Ljava/lang/String;)V");
+    escreve("\t.limit locals 40");
+    escreve("\t.limit stack 30");
 }
 
 void imprimeFim() {
-    FIM();
+    escreve(".end method");
 }

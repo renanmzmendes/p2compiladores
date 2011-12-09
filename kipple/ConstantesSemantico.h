@@ -10,7 +10,14 @@
 #define CONSTANTES_SEMANTICO_H
 
 typedef enum {
-    LOOP
+    
+    ARMAZENA_VARIAVEL = 1,
+    ARMAZENA_NUMERO,
+    ARMAZENA_NUM_PUSH_LEFT,
+    ARMAZENA_VAR_PUSH_LEFT,
+    PUSH_LEFT_NUM,
+    PUSH_LEFT,
+    PUSH_RIGHT
 } AcaoSemantica;
 
 #endif

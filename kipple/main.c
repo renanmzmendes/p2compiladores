@@ -9,8 +9,7 @@
 #include "Semantico.h"
 #include "TabelasSintatico.h"
 
-int main() {
-    
+int main() {    
 	Token *token;
 	token = (Token*) malloc(sizeof(Token));
     
@@ -23,15 +22,17 @@ int main() {
         printf("arquivo nao encontrado\n\n");
         return 1;
     }
-    
+        
     StackInit(&pilhaEstado, MAX_SIZE);
 
     // Escreve o cabeçalho antes mesmo de entrar
     // em algum estado, já que não existe um "main"
     // em Kipple.
     
+    inicializaSemantico();
     imprimeCabecalho();
     
+    Submaquina ultimaSubmaquina;
     Estado estadoCorrente = CODE_INICIAL;
     Estado estadoAnterior = 0;
 	token = getNextToken(entrada);
@@ -47,30 +48,29 @@ int main() {
             if(!procuraChamadaSubmaquina(estadoCorrente, token, &chamada)) {
                 // Caso não encontra chamada de submáquina, verifica se é estado final,
                 // se for aceita, senão dá erro
-                if(estadoFinal(estadoCorrente)) {       
+                if(estadoFinal(estadoCorrente)) {  
+                    ultimaSubmaquina = obterSubmaquina(estadoCorrente);
                     estadoAnterior = estadoCorrente;
                     estadoCorrente = desempilha();
-                    //executarAcaoSemantica(estadoAnterior, estadoCorrente, token);
-                    semantico_tbd();
-
+                    executarAcaoSemantica(estadoAnterior, estadoCorrente, ultimaSubmaquina, token);
+                    
                 } else {
                     printf("Erro no reconhecimento de sintaxe, linha %d", token->linha);
                     getchar();
                     exit(1);
                 }
             } else { // Se acha chamada de submáquina
+                ultimaSubmaquina = obterSubmaquina(estadoCorrente);
                 estadoAnterior = estadoCorrente;
                 estadoCorrente = chamada.estadoDestino;
-                //executarAcaoSemantica(estadoAnterior, estadoCorrente, token);
-                semantico_tbd();
+                executarAcaoSemantica(estadoAnterior, estadoCorrente, ultimaSubmaquina, token);
                 empilha(chamada.estadoRetorno);
             }
             
         } else { // Se encontrar transição
             estadoAnterior = estadoCorrente;
             estadoCorrente = trans.estadoDestino;    
-            //executarAcaoSemantica(estadoAnterior, estadoCorrente, token);
-            semantico_tbd();
+            executarAcaoSemantica(estadoAnterior, estadoCorrente, ultimaSubmaquina, token);
             token = getNextToken(entrada);
             
         }

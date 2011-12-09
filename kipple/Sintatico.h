@@ -25,6 +25,8 @@ int procuraChamadaSubmaquina(Estado estadoCorrente, Token* token, chamadaSubmaqu
 
 int estadoFinal(Estado estado);
 
+Submaquina obterSubmaquina(Estado estado);
+
 void semantico_tbd();
 
 #endif

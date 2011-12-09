@@ -61,4 +61,17 @@ typedef enum {
     
 } Estado;
 
+typedef enum {
+    CODE = 1,
+    LOOP,
+    OP_DOIS,
+    OP_UM,
+    OPERATION,
+    REST_ADD,
+    REST_CLR,
+    REST_PL,
+    REST_PR,
+    REST_SUB,
+} Submaquina;
+
 #endif
