@@ -1,11 +1,14 @@
 Tkipple
 v7
 r0
-t344998881.586965
+t345036542.087038
 cCheck dependencies
-cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Token.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o /Users/tiago/github/p2compiladores/kipple/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o /Users/tiago/github/p2compiladores/kipple/Lexico.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o /Users/tiago/github/p2compiladores/kipple/Token.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o /Users/tiago/github/p2compiladores/kipple/Sintatico.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/stack.o /Users/tiago/github/p2compiladores/kipple/stack.c normal x86_64 c com.apple.compilers.gcc.4_2
+cLd /Users/tiago/github/p2compiladores/kipple/build/Debug/kipple normal x86_64
 
 N/Developer/SDKs/MacOSX10.6.sdk
 c000000004CAA740B00000000000000EE
@@ -92,9 +95,125 @@ i<stdio.h>
 i<stdlib.h>
 i"Lexico.h"
 
+N/Users/tiago/github/p2compiladores/kipple/ConstantesSintatico.h
+c000000004EE027D800000000000003A6
+t1323313112
+s934
+
+N/Users/tiago/github/p2compiladores/kipple/Lexico.c
+c000000004EE027D800000000000006C0
+t1323313112
+s1728
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+i"Lexico.h"
+
+N/Users/tiago/github/p2compiladores/kipple/Lexico.h
+c000000004EE027D800000000000000F6
+t1323313112
+s246
+i"stdio.h"
+i"Token.h"
+
+N/Users/tiago/github/p2compiladores/kipple/Sintatico.c
+c000000004EE027D800000000000006E7
+t1323313112
+s1767
+i"Sintatico.h"
+i"TabelasSintatico.h"
+i"string.h"
+i"stdlib.h"
+i"stdio.h"
+i"stack.h"
+
+N/Users/tiago/github/p2compiladores/kipple/Sintatico.h
+c000000004EE027D80000000000000234
+t1323313112
+s564
+i"Token.h"
+i"TabelasSintatico.h"
+i"stack.h"
+
+N/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h
+c000000004EE027D80000000000000B57
+t1323313112
+s2903
+i"Token.h"
+i"ConstantesSintatico.h"
+
+N/Users/tiago/github/p2compiladores/kipple/Token.c
+c000000004EE027D800000000000001F6
+t1323313112
+s502
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+i"Token.h"
+
+N/Users/tiago/github/p2compiladores/kipple/Token.h
+c000000004EE027D80000000000000275
+t1323313112
+s629
+
+N/Users/tiago/github/p2compiladores/kipple/build/Debug/kipple
+t1323343685
+s17312
+
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o
+t1323343656
+s5764
+
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o
+t1323343656
+s7756
+
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o
+t1323313112
+s4272
+
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/kipple.LinkFileList
+c000000004EE09F28000000000000022A
+t1323343656
+s554
+
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o
+t1323343685
+s7056
+
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/stack.o
+t1323343656
+s6612
+
+N/Users/tiago/github/p2compiladores/kipple/main.c
+c000000004EE09F4400000000000009F1
+t1323343684
+s2545
+i<stdio.h>
+i<stdlib.h>
+i"Lexico.h"
+i"Sintatico.h"
+i"TabelasSintatico.h"
+
+N/Users/tiago/github/p2compiladores/kipple/stack.c
+c000000004EE027D800000000000007FB
+t1323313112
+s2043
+i"stack.h"
+i<stdio.h>
+i<stdlib.h>
+i"stack.h"
+
+N/Users/tiago/github/p2compiladores/kipple/stack.h
+c000000004EE027D800000000000003CD
+t1323313112
+s973
+i<stdio.h>
+i<stdlib.h>
+
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies344998881#344998881#0(0"0(0#1#0"8612365056#0"0#
+lSLF07#2@18"Check dependencies345036542#345036542#0(0"0(0#1#0"8619706240#0"0#
 
 CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344998881.503099
@@ -110,6 +229,32 @@ xcom.apple.compilers.gcc.4_2
 o/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c:196:18: error: empty character constant
 lSLF07#2@100"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c344998881#344998881#0(133"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c:196:18: error: empty character constant1(4@24"Empty character constant344998881#0#133#0(6@92"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c344998878#196#0#196#0#0"0(0#0#92"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c8603303744#1773"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Lexico.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o"1#
 
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o /Users/tiago/github/p2compiladores/kipple/Lexico.c normal x86_64 c com.apple.compilers.gcc.4_2
+s345036456.262118
+e345036456.389012
+r1
+xCompileC
+xbuild/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o
+x/Users/tiago/github/p2compiladores/kipple/Lexico.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@58"Compile /Users/tiago/github/p2compiladores/kipple/Lexico.c345036456#345036456#0(0"0(0#0#50"/Users/tiago/github/p2compiladores/kipple/Lexico.c8615422272#1289"    cd /Users/tiago/github/p2compiladores/kipple    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap -F/Users/tiago/github/p2compiladores/kipple/build/Debug -I/Users/tiago/github/p2compiladores/kipple/build/Debug/include -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64 -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources -c /Users/tiago/github/p2compiladores/kipple/Lexico.c -o /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o0#
+
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o /Users/tiago/github/p2compiladores/kipple/Sintatico.c normal x86_64 c com.apple.compilers.gcc.4_2
+s345036456.265225
+e345036456.408669
+r1
+xCompileC
+xbuild/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o
+x/Users/tiago/github/p2compiladores/kipple/Sintatico.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@61"Compile /Users/tiago/github/p2compiladores/kipple/Sintatico.c345036456#345036456#0(0"0(0#0#53"/Users/tiago/github/p2compiladores/kipple/Sintatico.c8615246048#1295"    cd /Users/tiago/github/p2compiladores/kipple    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap -F/Users/tiago/github/p2compiladores/kipple/build/Debug -I/Users/tiago/github/p2compiladores/kipple/build/Debug/include -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64 -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources -c /Users/tiago/github/p2compiladores/kipple/Sintatico.c -o /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o0#
+
 CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Token.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344998881.546936
 e344998881.586876
@@ -122,6 +267,9 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@99"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Token.c344998881#344998881#0(0"0(0#0#91"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Token.c8599731424#1771"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/Token.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o"0#
+
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o /Users/tiago/github/p2compiladores/kipple/Token.c normal x86_64 c com.apple.compilers.gcc.4_2
+r0
 
 CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344998881.502147
@@ -136,6 +284,34 @@ xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@98"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c344998881#344998881#0(0"0(0#0#90"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c8604304992#1769"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/main.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o"0#
 
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o /Users/tiago/github/p2compiladores/kipple/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+s345036485.601642
+e345036485.642351
+r1
+xCompileC
+xbuild/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o
+x/Users/tiago/github/p2compiladores/kipple/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+o/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h:22: warning: 'transicoes' defined but not used
+o/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h:68: warning: 'chamadas' defined but not used
+lSLF07#2@56"Compile /Users/tiago/github/p2compiladores/kipple/main.c345036485#345036485#0(214"/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h:22: warning: 'transicoes' defined but not used/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h:68: warning: 'chamadas' defined but not used2(22@33"'transicoes' defined but not used345036485#0#108#0(6@60"/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h345005912#22#0#22#0#24"'*' defined but not used0(22@31"'chamadas' defined but not used345036485#108#106#0(6@60"/Users/tiago/github/p2compiladores/kipple/TabelasSintatico.h345005912#68#0#68#0#24"'*' defined but not used0(0#0#48"/Users/tiago/github/p2compiladores/kipple/main.c8615636640#1285"    cd /Users/tiago/github/p2compiladores/kipple    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap -F/Users/tiago/github/p2compiladores/kipple/build/Debug -I/Users/tiago/github/p2compiladores/kipple/build/Debug/include -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64 -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources -c /Users/tiago/github/p2compiladores/kipple/main.c -o /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o0#
+
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/stack.o /Users/tiago/github/p2compiladores/kipple/stack.c normal x86_64 c com.apple.compilers.gcc.4_2
+s345036456.389107
+e345036456.445073
+r1
+xCompileC
+xbuild/kipple.build/Debug/kipple.build/Objects-normal/x86_64/stack.o
+x/Users/tiago/github/p2compiladores/kipple/stack.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@57"Compile /Users/tiago/github/p2compiladores/kipple/stack.c345036456#345036456#0(0"0(0#0#49"/Users/tiago/github/p2compiladores/kipple/stack.c8611796128#1287"    cd /Users/tiago/github/p2compiladores/kipple    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap -F/Users/tiago/github/p2compiladores/kipple/build/Debug -I/Users/tiago/github/p2compiladores/kipple/build/Debug/include -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64 -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources -c /Users/tiago/github/p2compiladores/kipple/stack.c -o /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/stack.o0#
+
 CLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple" normal x86_64
 s344998312.385159
 e344998312.403444
@@ -145,4 +321,14 @@ x/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/ki
 xnormal
 xx86_64
 lSLF07#2@107"Link /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple344998312#344998312#0(0"0(0#0#0"8604397696#729"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug" -filelist "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/kipple.LinkFileList" -mmacosx-version-min=10.6 -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/p2/p2compiladores/kipple/build/Debug/kipple"0#
+
+CLd /Users/tiago/github/p2compiladores/kipple/build/Debug/kipple normal x86_64
+s345036485.642436
+e345036485.659271
+r1
+xLd
+x/Users/tiago/github/p2compiladores/kipple/build/Debug/kipple
+xnormal
+xx86_64
+lSLF07#2@65"Link /Users/tiago/github/p2compiladores/kipple/build/Debug/kipple345036485#345036485#0(0"0(0#0#0"8598523872#509"    cd /Users/tiago/github/p2compiladores/kipple    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/tiago/github/p2compiladores/kipple/build/Debug -F/Users/tiago/github/p2compiladores/kipple/build/Debug -filelist /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/kipple.LinkFileList -mmacosx-version-min=10.6 -o /Users/tiago/github/p2compiladores/kipple/build/Debug/kipple0#
 
