@@ -24,13 +24,13 @@ int main() {
     }
         
     StackInit(&pilhaEstado, MAX_SIZE);
-
     // Escreve o cabeçalho antes mesmo de entrar
     // em algum estado, já que não existe um "main"
     // em Kipple.
     
     inicializaSemantico();
     imprimeCabecalho();
+    declaraVariaveis();
     
     Submaquina ultimaSubmaquina;
     Estado estadoCorrente = CODE_INICIAL;

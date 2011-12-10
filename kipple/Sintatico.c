@@ -51,6 +51,7 @@ int procuraChamadaSubmaquina(Estado estadoCorrente, Token* token, chamadaSubmaqu
 
 int estadoFinal(Estado estado) {
     if(estado == CODE_1_AC
+       || estado == CODE_INICIAL
        || estado == LOOP_4_AC
        || estado == NUM_1_AC
        || estado == OP_DOIS_1_AC

@@ -29,21 +29,14 @@ static int contaWhiles = 0;
 static int contaIfs = 0;
 FILE* out;
 
-stackT pilhaIfs;
-stackT pilhaElses;
 stackT pilhaWhiles;
-
-//stackToken pilhaOperadores;
-//stackToken pilhaOperandos;
-stackT pilhaExpressoes;
-
 
 void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubmaquina, Token* t);
 AcaoSemantica decidirAcaoSemantica(Estado e, Estado atual, Submaquina ultimaSubmaquina);
 
 void inicializaSemantico();
 void imprimeCabecalho();
-void declararVariaveisConstantes();
+void declaraVariaveis();
 void escreveFuncoesMvn();
 void imprimeFim();
 
@@ -81,6 +74,10 @@ static EstadoAcao relacoes[] = {
     // OPERACAO DE ADICAO
     {OP_DOIS_1_AC, OP_DOIS_INICIAL, REST_SUB, ARMAZENA_VAR_SUBTRAI},
     {OP_UM_1_AC, OP_UM_INICIAL, REST_SUB, ARMAZENA_NUM_SUBTRAI},
+    
+    // LOOP
+    {OP_DOIS_1_AC, OP_DOIS_INICIAL, LOOP, TESTA_VARIAVEL},
+    {LOOP_4_AC, LOOP_3, CODE, FIM_DO_LOOP}
     
 };
 

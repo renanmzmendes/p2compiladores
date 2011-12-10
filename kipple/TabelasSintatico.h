@@ -69,6 +69,7 @@ static chamadaSubmaquina chamadas[] = {
     // CODE
     {CODE_INICIAL, ID, OPERATION_INICIAL, CODE_1_AC},
     {CODE_INICIAL, NUM, OPERATION_INICIAL, CODE_1_AC},
+    {CODE_INICIAL, L_PAR, LOOP_INICIAL, CODE_1_AC},
     
     // LOOP
     {LOOP_1, NDEF, OP_DOIS_INICIAL, LOOP_2},

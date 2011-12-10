@@ -14,6 +14,7 @@
 
 #define MAX_LABEL 200
 #define MAX_COMANDO 200
+#define MAX_PILHA 50
     
 Token* lvalue; // Para guardar a variável da atribuição
 Token* varUltimaExp; // Para guardar a variável temporária da expressão
@@ -29,6 +30,7 @@ tipoToken tipoLOperand;
 
 void inicializaSemantico() {
     out = fopen("/Users/renanmzmendes/p2compiladores/out.txt", "wr");
+    StackInit(&pilhaWhiles, MAX_PILHA);
 
     int i;
     for(i = 0; i < 26; ++i) {
@@ -132,14 +134,22 @@ void checkcast(char* typeName) {
     free(comando);
 }
 
-void ifne(int id) {
+void ifneclear(int id) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "\tifne clear_%d", id);
     escreve(comando);
     free(comando);
 }
 
-void ifeq(int id) {
+void ifneloop(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tifne fimloop_%d", id);
+    escreve(comando);
+    free(comando);
+}
+
+
+void ifeqclear(int id) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "\tifeq clear_%d", id);
     escreve(comando);
@@ -149,6 +159,27 @@ void ifeq(int id) {
 void fimclear(int id) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "\tclear_%d:", id);
+    escreve(comando);
+    free(comando);
+}
+
+void comecoloop(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tloop_%d:", id);
+    escreve(comando);
+    free(comando);
+}
+
+void fimloop(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tfimloop_%d:", id);
+    escreve(comando);
+    free(comando);
+}
+
+void _goto(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\t goto loop_%d", id);
     escreve(comando);
     free(comando);
 }
@@ -196,24 +227,6 @@ int incluiVariavel(char v) {
     }
     
     return varIdx;
-}
-
-// Gera código da operação e 
-void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
-    // Cria variável temporária
-//    char* labelTemp = criaVariavelTemporaria();
-//    
-//    char* labelTopo = recuperaLabel(topo);
-//    char* labelAbaixo = recuperaLabel(abaixo);
-    
-//    char* comando = getEmptyString(MAX_COMANDO);
-//    sprintf(comando, "%s %s", operador->valor, labelTopo);
-//    escreve(comando);
-////    free(comando);
-//    
-//    Token* t = (Token*) malloc(sizeof(Token));
-//    t->tipo = ID;
-//    strcpy(t->valor, labelTemp);
 }
 
 // Sempre faz recebe<fornece
@@ -267,10 +280,11 @@ void geraClear(int idxVar) {
     iconst_0();
     invokestatic("java/lang/Integer.valueOf(I)Ljava/lang/Integer;", "");
     invokevirtual("java/lang/Integer.equals(Ljava/lang/Object;)", "Z");
-    ifeq(contaIfs);
+    ifeqclear(contaIfs);
     aload(idxVar);
     invokevirtual("java/util/Stack.clear()", "V");
     fimclear(contaIfs);
+    ++contaIfs;
 }
 
 // a+2
@@ -311,6 +325,24 @@ void geraSubtracaoNum(int idxVar, int num) {
     pop();
     
     
+}
+
+void geraLabelLoop(int i) {
+    
+}
+
+void geraTesteVariavel(int loopId, int var) {
+    
+    comecoloop(loopId);
+    aload(var);
+    invokevirtual("java/util/Stack.empty()", "Z");
+    ifneloop(loopId);
+    ++contaWhiles;
+}
+
+void geraFimLoop(int i) {
+    _goto(i);
+    fimloop(i);
 }
 
 // a+b
@@ -423,6 +455,17 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubma
         int loperand = var;
         var = incluiVariavel(t->valor[0]);
         geraSubtracaoVar(loperand, var);
+    } else if(a == TESTA_VARIAVEL) {
+        StackPush(&pilhaWhiles, contaWhiles);
+        geraLabelLoop(contaWhiles);
+        
+        // Aqui testa se pilha está vazia e redireciona
+        // para o fim do loop
+        var = incluiVariavel(t->valor[0]);
+        geraTesteVariavel(contaWhiles, var);
+        
+    } else if(a == FIM_DO_LOOP) {
+        geraFimLoop(StackPop(&pilhaWhiles));
     }
     
 
@@ -468,6 +511,13 @@ void imprimeCabecalho() {
     escreve(".method public static main([Ljava/lang/String;)V");
     escreve("\t.limit locals 40");
     escreve("\t.limit stack 30");
+}
+
+void declaraVariaveis() {
+    int i;
+    for(i = 0; i < 26; ++i) {
+        incluiVariavel(getVarByIndex(i));
+    }
 }
 
 void imprimeFim() {
