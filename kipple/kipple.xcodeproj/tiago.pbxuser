@@ -56,8 +56,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 345172906;
-			PBXWorkspaceStateSaveDate = 345172906;
+			PBXPerProjectTemplateStateSaveDate = 345180776;
+			PBXWorkspaceStateSaveDate = 345180776;
 		};
 		perUserProjectItems = {
 			F1979FA61492F023007BEC81 /* PBXTextBookmark */ = F1979FA61492F023007BEC81 /* PBXTextBookmark */;
@@ -70,8 +70,8 @@
 			F1979FAD1492F023007BEC81 /* PBXTextBookmark */ = F1979FAD1492F023007BEC81 /* PBXTextBookmark */;
 			F1979FAE1492F023007BEC81 /* PBXTextBookmark */ = F1979FAE1492F023007BEC81 /* PBXTextBookmark */;
 			F1979FB5149303BA007BEC81 /* PBXTextBookmark */ = F1979FB5149303BA007BEC81 /* PBXTextBookmark */;
-			F1979FB6149303BA007BEC81 /* PBXTextBookmark */ = F1979FB6149303BA007BEC81 /* PBXTextBookmark */;
 			F1979FB7149303BA007BEC81 /* PBXTextBookmark */ = F1979FB7149303BA007BEC81 /* PBXTextBookmark */;
+			F1979FC214930A7C007BEC81 /* PBXTextBookmark */ = F1979FC214930A7C007BEC81 /* PBXTextBookmark */;
 		};
 		sourceControlManager = F1AA1FBA14903AEA0022ED19 /* Source Control */;
 		userBuildSettings = {
@@ -134,9 +134,9 @@
 	};
 	C1C4BEF9149123D0004B08F6 /* Semantico.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {764, 5746}}";
+			sepNavIntBoundsRect = "{{0, 0}, {764, 5928}}";
 			sepNavSelRange = "{9582, 0}";
-			sepNavVisRange = "{8795, 1470}";
+			sepNavVisRange = "{10268, 1331}";
 		};
 	};
 	C1C4BEFA149123D0004B08F6 /* Semantico.h */ = {
@@ -246,16 +246,6 @@
 		vrLen = 914;
 		vrLoc = 136;
 	};
-	F1979FB6149303BA007BEC81 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C1C4BEF9149123D0004B08F6 /* Semantico.c */;
-		name = "Semantico.c: 352";
-		rLen = 11;
-		rLoc = 8716;
-		rType = 0;
-		vrLen = 1314;
-		vrLoc = 7957;
-	};
 	F1979FB7149303BA007BEC81 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C1C4BEF9149123D0004B08F6 /* Semantico.c */;
@@ -265,6 +255,16 @@
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 8795;
+	};
+	F1979FC214930A7C007BEC81 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C1C4BEF9149123D0004B08F6 /* Semantico.c */;
+		name = "Semantico.c: 384";
+		rLen = 0;
+		rLoc = 9582;
+		rType = 0;
+		vrLen = 1331;
+		vrLoc = 10268;
 	};
 	F1AA1FAF14903AE20022ED19 /* kipple */ = {
 		isa = PBXExecutable;

@@ -106,9 +106,9 @@ t1323479762
 s1095
 
 N/Users/tiago/github/p2compiladores/kipple/Lexico.c
-c000000004EE027D800000000000006C0
-t1323313112
-s1728
+c000000004EE2CCFB0000000000000786
+t1323486459
+s1926
 i<stdio.h>
 i<stdlib.h>
 i<string.h>
@@ -122,9 +122,9 @@ i"stdio.h"
 i"Token.h"
 
 N/Users/tiago/github/p2compiladores/kipple/Semantico.c
-c000000004EE2B2D20000000000002B80
-t1323479762
-s11136
+c000000004EE2CCFB0000000000002F0E
+t1323486459
+s12046
 i"stdio.h"
 i"Semantico.h"
 i"Token.h"
@@ -132,9 +132,9 @@ i"stdlib.h"
 i"string.h"
 
 N/Users/tiago/github/p2compiladores/kipple/Semantico.h
-c000000004EE2B2D200000000000008DC
-t1323479762
-s2268
+c000000004EE2CCFB00000000000008F5
+t1323486459
+s2293
 i"ConstantesSintatico.h"
 i"ConstantesSemantico.h"
 i"Token.h"
