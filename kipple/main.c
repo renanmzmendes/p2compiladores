@@ -16,7 +16,7 @@ int main() {
         
     
 	FILE *entrada;
-    entrada = fopen("ENTRADA.txt", "r");
+    entrada = fopen("./ENTRADA.txt", "r");
     //verificando se arquivo existe
     if(entrada == NULL) {
         printf("arquivo nao encontrado\n\n");

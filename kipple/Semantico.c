@@ -29,7 +29,7 @@ int variaveis[26];
 tipoToken tipoLOperand;
 
 void inicializaSemantico() {
-    out = fopen("SAIDA.j", "wr");
+    out = fopen("./SAIDA.j", "wr");
     StackInit(&pilhaWhiles, MAX_PILHA);
 
     int i;
@@ -498,7 +498,7 @@ void escreveFuncoesMvn() {
 }
 
 void imprimeCabecalho() {
-    escreve(".class public examples/MainProgram");
+    escreve(".class public MainProgram");
     escreve(".super java/lang/Object");
     escreve("");
     escreve(".method public <init>()V");
@@ -521,5 +521,6 @@ void declaraVariaveis() {
 }
 
 void imprimeFim() {
+    escreve("return");
     escreve(".end method");
 }
