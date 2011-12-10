@@ -132,6 +132,27 @@ void checkcast(char* typeName) {
     free(comando);
 }
 
+void ifne(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tifne clear_%d", id);
+    escreve(comando);
+    free(comando);
+}
+
+void ifeq(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tifeq clear_%d", id);
+    escreve(comando);
+    free(comando);
+}
+
+void fimclear(int id) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tclear_%d:", id);
+    escreve(comando);
+    free(comando);
+}
+
 
 void dup() {
     escreve("\tdup");
@@ -147,6 +168,10 @@ void iadd() {
 
 void isub() {
     escreve("\tisub");
+}
+
+void iconst_0() {
+    escreve("\ticonst_0");
 }
 
 ////////////////////////////
@@ -231,13 +256,21 @@ void geraPushNum(int idxVar, int num) {
 
 void geraClear(int idxVar) {
     // Em java seria:
-    // Integer i = (Integer)stack.pop();
-    // stack.push(i);
-    // if(i == 0) {
+    // 
+    // if(((Integer)stack.peek()).equals(0)) {
     //    stack.clear();
     // }
     
-    
+    aload(idxVar);
+    invokevirtual("java/util/Stack.peek()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    iconst_0();
+    invokestatic("java/lang/Integer.valueOf(I)Ljava/lang/Integer;", "");
+    invokevirtual("java/lang/Integer.equals(Ljava/lang/Object;)", "Z");
+    ifeq(contaIfs);
+    aload(idxVar);
+    invokevirtual("java/util/Stack.clear()", "V");
+    fimclear(contaIfs);
 }
 
 // a+2
@@ -372,6 +405,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubma
             
         }
     } else if(a == CLEAR_STACK) {
+        geraClear(var);
         
     } else if(a == ARMAZENA_NUM_ADICIONA) {
         num = atoi(t->valor);

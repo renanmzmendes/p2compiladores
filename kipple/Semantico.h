@@ -26,6 +26,7 @@ typedef struct {
 Tokens tokens;
 
 static int contaWhiles = 0;
+static int contaIfs = 0;
 FILE* out;
 
 stackT pilhaIfs;

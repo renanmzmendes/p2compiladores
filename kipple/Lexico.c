@@ -68,9 +68,13 @@ Token *getNextToken(FILE *inputFile){
 			tipo = NUM;
 		}else if (ch >= 'a' && ch<= 'z' || ch >= 'A' && ch<= 'Z'){
 			tipo = ID;
+		}else if (ch == '?') {
+			tipo = QUESTION_MARK;
 		}else {
-			tipo = ERRO;
-		}
+            tipo = ERRO;
+            printf("ERRO LEXICO - caractere não identificado -> %c\nlinha: %d\ncoluna: %d",ch, linha, coluna);
+            exit(1);
+        }
 	}
 	
 	if (tipo == NUM) {
