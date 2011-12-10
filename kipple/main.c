@@ -16,7 +16,7 @@ int main() {
         
     
 	FILE *entrada;
-    entrada = fopen("/Users/renanmzmendes/p2compiladores/in.txt", "r");
+    entrada = fopen("ENTRADA.txt", "r");
     //verificando se arquivo existe
     if(entrada == NULL) {
         printf("arquivo nao encontrado\n\n");

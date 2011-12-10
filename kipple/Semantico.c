@@ -29,7 +29,7 @@ int variaveis[26];
 tipoToken tipoLOperand;
 
 void inicializaSemantico() {
-    out = fopen("/Users/renanmzmendes/p2compiladores/out.txt", "wr");
+    out = fopen("SAIDA.j", "wr");
     StackInit(&pilhaWhiles, MAX_PILHA);
 
     int i;
