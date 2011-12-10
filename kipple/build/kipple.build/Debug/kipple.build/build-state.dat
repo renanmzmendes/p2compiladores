@@ -95,10 +95,15 @@ i<stdio.h>
 i<stdlib.h>
 i"Lexico.h"
 
+N/Users/tiago/github/p2compiladores/kipple/ConstantesSemantico.h
+c000000004EE2B2D20000000000000246
+t1323479762
+s582
+
 N/Users/tiago/github/p2compiladores/kipple/ConstantesSintatico.h
-c000000004EE027D800000000000003A6
-t1323313112
-s934
+c000000004EE2B2D20000000000000447
+t1323479762
+s1095
 
 N/Users/tiago/github/p2compiladores/kipple/Lexico.c
 c000000004EE027D800000000000006C0
@@ -116,10 +121,30 @@ s246
 i"stdio.h"
 i"Token.h"
 
+N/Users/tiago/github/p2compiladores/kipple/Semantico.c
+c000000004EE2B2D20000000000002B80
+t1323479762
+s11136
+i"stdio.h"
+i"Semantico.h"
+i"Token.h"
+i"stdlib.h"
+i"string.h"
+
+N/Users/tiago/github/p2compiladores/kipple/Semantico.h
+c000000004EE2B2D200000000000008DC
+t1323479762
+s2268
+i"ConstantesSintatico.h"
+i"ConstantesSemantico.h"
+i"Token.h"
+i"stack.h"
+i"stdio.h"
+
 N/Users/tiago/github/p2compiladores/kipple/Sintatico.c
-c000000004EE027D800000000000006E7
-t1323313112
-s1767
+c000000004EE2B2D20000000000000ABE
+t1323479762
+s2750
 i"Sintatico.h"
 i"TabelasSintatico.h"
 i"string.h"
@@ -128,9 +153,9 @@ i"stdio.h"
 i"stack.h"
 
 N/Users/tiago/github/p2compiladores/kipple/Sintatico.h
-c000000004EE027D80000000000000234
-t1323313112
-s564
+c000000004EE2B2D20000000000000260
+t1323479762
+s608
 i"Token.h"
 i"TabelasSintatico.h"
 i"stack.h"
@@ -157,15 +182,19 @@ t1323313112
 s629
 
 N/Users/tiago/github/p2compiladores/kipple/build/Debug/kipple
-t1323343685
+t1323363376
 s17312
 
 N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o
-t1323343656
+t1323363376
 s5764
 
+N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Semantico.o
+t2
+s0
+
 N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o
-t1323343656
+t1323363376
 s7756
 
 N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Token.o
@@ -173,26 +202,27 @@ t1323313112
 s4272
 
 N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/kipple.LinkFileList
-c000000004EE09F28000000000000022A
-t1323343656
+c000000004EE0EC30000000000000022A
+t1323363376
 s554
 
 N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/main.o
-t1323343685
+t1323363376
 s7056
 
 N/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/stack.o
-t1323343656
+t1323363376
 s6612
 
 N/Users/tiago/github/p2compiladores/kipple/main.c
-c000000004EE09F4400000000000009F1
-t1323343684
-s2545
+c000000004EE2B2D20000000000000B31
+t1323479762
+s2865
 i<stdio.h>
 i<stdlib.h>
 i"Lexico.h"
 i"Sintatico.h"
+i"Semantico.h"
 i"TabelasSintatico.h"
 
 N/Users/tiago/github/p2compiladores/kipple/stack.c
@@ -241,6 +271,9 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@58"Compile /Users/tiago/github/p2compiladores/kipple/Lexico.c345036456#345036456#0(0"0(0#0#50"/Users/tiago/github/p2compiladores/kipple/Lexico.c8615422272#1289"    cd /Users/tiago/github/p2compiladores/kipple    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-generated-files.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-own-target-headers.hmap -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-all-target-headers.hmap -iquote /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/kipple-project-headers.hmap -F/Users/tiago/github/p2compiladores/kipple/build/Debug -I/Users/tiago/github/p2compiladores/kipple/build/Debug/include -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources/x86_64 -I/Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/DerivedSources -c /Users/tiago/github/p2compiladores/kipple/Lexico.c -o /Users/tiago/github/p2compiladores/kipple/build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Lexico.o0#
+
+CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Semantico.o /Users/tiago/github/p2compiladores/kipple/Semantico.c normal x86_64 c com.apple.compilers.gcc.4_2
+r0
 
 CCompileC build/kipple.build/Debug/kipple.build/Objects-normal/x86_64/Sintatico.o /Users/tiago/github/p2compiladores/kipple/Sintatico.c normal x86_64 c com.apple.compilers.gcc.4_2
 s345036456.265225
