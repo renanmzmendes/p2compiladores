@@ -20,6 +20,13 @@ typedef enum {
     DEFINE_LOPERAND_VAR,
     ARMAZENA_VAR_PUSH_RIGHT,
     
+    CLEAR_STACK,
+    ARMAZENA_NUM_ADICIONA,
+    ARMAZENA_VAR_ADICIONA,
+    
+    ARMAZENA_VAR_SUBTRAI,
+    ARMAZENA_NUM_SUBTRAI
+    
 } AcaoSemantica;
 
 #endif

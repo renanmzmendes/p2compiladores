@@ -75,9 +75,23 @@ void aload(int i) {
     free(comando);
 }
 
+void iload(int i) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tiload %d", i);
+    escreve(comando);
+    free(comando);
+}
+
 void astore(int i) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "\tastore %d", i);
+    escreve(comando);
+    free(comando);
+}
+
+void istore(int i) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tistore %d", i);
     escreve(comando);
     free(comando);
 }
@@ -97,9 +111,23 @@ void invokespecial(char* method, char* returnType) {
     free(comando);
 }
 
+void invokestatic(char* method, char* returnType) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tinvokestatic %s%s", method, returnType);
+    escreve(comando);
+    free(comando);
+}
+
 void invokevirtual(char* method, char* returnType) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "\tinvokevirtual %s%s", method, returnType);
+    escreve(comando);
+    free(comando);
+}
+
+void checkcast(char* typeName) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "\tcheckcast %s", typeName);
     escreve(comando);
     free(comando);
 }
@@ -111,6 +139,14 @@ void dup() {
 
 void pop() {
     escreve("\tpop");
+}
+
+void iadd() {
+    escreve("\tiadd");
+}
+
+void isub() {
+    escreve("\tisub");
 }
 
 ////////////////////////////
@@ -135,21 +171,6 @@ int incluiVariavel(char v) {
     }
     
     return varIdx;
-}
-
-
-// Retorna o label/valor da variável temporária
-char* criaVariavelTemporaria() {
-    char* label = getEmptyString(MAX_LABEL);
-    strcat(label, "TEMP");
-    char* idx = getEmptyString(5);
-//    sprintf(idx, "%d", contaTemp);
-    strcat(label, idx);
-    //adicionarSimbolo(ID, label, label, escopoAtual);
-    
-//    contaTemp++;
-    
-    return label;
 }
 
 // Gera código da operação e 
@@ -185,7 +206,7 @@ void geraPushVar(int recebe, int fornece) {
     aload(recebe);
     aload(fornece);
     invokevirtual("java/util/Stack/pop()", "Ljava/lang/Object;");
-    invokevirtual("java/util/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
     pop();
     
 }
@@ -202,10 +223,101 @@ void geraPushNum(int idxVar, int num) {
 //    pop
     
     aload(idxVar);
-    new("java/lang/Integer");
-    dup();
     bipush(num);
-    invokespecial("java/lang/Integer/<init>(I)", "V");
+    invokestatic("java/lang/Integer.valueOf(I)", "Ljava/lang/Integer;");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+}
+
+void geraClear(int idxVar) {
+    // Em java seria:
+    // Integer i = (Integer)stack.pop();
+    // stack.push(i);
+    // if(i == 0) {
+    //    stack.clear();
+    // }
+    
+    
+}
+
+// a+2
+void geraAdicaoNum(int idxVar, int num) {
+    // Em Java:
+    // stack1.push((Integer) stack1.peek() + num);
+    
+    // Em bytecode:
+    aload(idxVar);
+    aload(idxVar);
+    invokevirtual("java/util/Stack/peek()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    invokevirtual("java/lang/Integer/intValue()", "I");
+    bipush(num);
+    iadd();
+    invokestatic("java/lang/Integer.valueOf(I)", "Ljava/lang/Integer;");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+
+
+}
+
+// a+2
+void geraSubtracaoNum(int idxVar, int num) {
+    // Em Java:
+    // stack1.push((Integer) stack1.peek() + num);
+    
+    // Em bytecode:
+    aload(idxVar);
+    aload(idxVar);
+    invokevirtual("java/util/Stack/peek()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    invokevirtual("java/lang/Integer/intValue()", "I");
+    bipush(num);
+    isub();
+    invokestatic("java/lang/Integer.valueOf(I)", "Ljava/lang/Integer;");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+    
+    
+}
+
+// a+b
+void geraAdicaoVar(int recebe, int fornece) {
+    // Em Java:
+    // stack1.push((Integer)stack.peek() + (Integer) stack2.pop());
+    
+    // Em bytecode:
+    aload(recebe);
+    aload(recebe);
+    invokevirtual("java/util/Stack/peek()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    invokevirtual("java/lang/Integer.intValue()", "I");
+    aload(fornece);
+    invokevirtual("java/util/Stack/pop()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    invokevirtual("java/lang/Integer.intValue()", "I");
+    iadd();
+    invokestatic("java/lang/Integer.valueOf(I)", "Ljava/lang/Integer;");
+    invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
+    pop();
+}
+
+// a+b
+void geraSubtracaoVar(int recebe, int fornece) {
+    // Em Java:
+    // stack1.push((Integer)stack.peek() + (Integer) stack2.pop());
+    
+    // Em bytecode:
+    aload(recebe);
+    aload(recebe);
+    invokevirtual("java/util/Stack/peek()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    invokevirtual("java/lang/Integer.intValue()", "I");
+    aload(fornece);
+    invokevirtual("java/util/Stack/pop()", "Ljava/lang/Object;");
+    checkcast("java/lang/Integer");
+    invokevirtual("java/lang/Integer.intValue()", "I");
+    isub();
+    invokestatic("java/lang/Integer.valueOf(I)", "Ljava/lang/Integer;");
     invokevirtual("java/util/Stack/push(Ljava/lang/Object;)", "Ljava/lang/Object;");
     pop();
 }
@@ -259,7 +371,25 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Submaquina ultimaSubma
             geraPushVar(var, loperand);
             
         }
-    } 
+    } else if(a == CLEAR_STACK) {
+        
+    } else if(a == ARMAZENA_NUM_ADICIONA) {
+        num = atoi(t->valor);
+        geraAdicaoNum(var, num);
+        
+    } else if(a == ARMAZENA_VAR_ADICIONA) {
+        int loperand = var;
+        var = incluiVariavel(t->valor[0]);
+        geraAdicaoVar(loperand, var);
+    } else if(a == ARMAZENA_NUM_SUBTRAI) {
+        num = atoi(t->valor);
+        geraSubtracaoNum(var, num);
+        
+    } else if(a == ARMAZENA_VAR_SUBTRAI) {
+        int loperand = var;
+        var = incluiVariavel(t->valor[0]);
+        geraSubtracaoVar(loperand, var);
+    }
     
 
 }
